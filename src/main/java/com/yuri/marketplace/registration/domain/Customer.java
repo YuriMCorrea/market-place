@@ -1,7 +1,9 @@
 package com.yuri.marketplace.registration.domain;
 
+import lombok.Getter;
 import org.springframework.util.Assert;
 
+@Getter
 public class Customer {
     private CustomerId id;
     private String name;

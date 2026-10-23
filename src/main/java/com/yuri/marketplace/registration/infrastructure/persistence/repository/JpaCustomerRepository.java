@@ -1,10 +1,13 @@
 package com.yuri.marketplace.registration.infrastructure.persistence.repository;
 
 import com.yuri.marketplace.registration.domain.Customer;
+import com.yuri.marketplace.registration.domain.CustomerId;
 import com.yuri.marketplace.registration.domain.CustomerRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Repository
 public class JpaCustomerRepository implements CustomerRepository {
@@ -23,7 +26,10 @@ public class JpaCustomerRepository implements CustomerRepository {
 
     @Override
     public List<Customer> findAll() {
-        return List.of();
+        var iterable = customerEntityRepository.findAll();
+        return StreamSupport.stream(iterable.spliterator(), false)
+                .map(JpaCustomerRepository::mapper).toList();
+
     }
 
     private static com.yuri.marketplace.registration.infrastructure.persistence.entity.Customer mapper(Customer customer){
@@ -33,4 +39,12 @@ public class JpaCustomerRepository implements CustomerRepository {
                 .email(customer.getEmail())
                 .build();
         }
+
+    private static Customer mapper(com.yuri.marketplace.registration.infrastructure.persistence.entity.Customer entity){
+        String fullName = Optional.ofNullable(entity.getLastName())
+                .map(lastName -> entity.getFirstName() + " " + lastName)
+                .orElseGet(entity::getFirstName);
+
+        return new Customer(new CustomerId(entity.getId()), fullName, entity.getEmail());
+    }
 }

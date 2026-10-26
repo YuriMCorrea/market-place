@@ -37,4 +37,11 @@ public class Customer {
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private Address address;
+
+    @PrePersist
+    public void prePersist(){
+        if(id == null) id = UUID.randomUUID();
+    }
 }

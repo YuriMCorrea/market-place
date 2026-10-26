@@ -28,7 +28,8 @@ public class JpaCustomerRepository implements CustomerRepository {
     public List<Customer> findAll() {
         var iterable = customerEntityRepository.findAll();
         return StreamSupport.stream(iterable.spliterator(), false)
-                .map(JpaCustomerRepository::mapper).toList();
+                .map(JpaCustomerRepository::mapper)
+                .toList();
 
     }
 

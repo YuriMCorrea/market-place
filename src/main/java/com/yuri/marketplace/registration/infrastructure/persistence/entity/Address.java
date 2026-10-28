@@ -26,4 +26,12 @@ public class Address {
     @CreationTimestamp
     @Column(updatable = false, nullable = false)
     private Instant createdAt;
+
+    @Override
+    public String toString() {
+        return street + '\'' +
+                ", " + city + '\'' +
+                ", '" + state + '\'' +
+                '.';
+    }
 }

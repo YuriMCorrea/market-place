@@ -26,7 +26,7 @@ public class Customer {
     @Column(nullable = false)
     private String firstName;
 
-    private String LastName;
+    private String lastName;
 
     @NotBlank
     @Email

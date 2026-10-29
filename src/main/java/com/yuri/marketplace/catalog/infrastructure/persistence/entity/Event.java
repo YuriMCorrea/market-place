@@ -1,4 +1,4 @@
-package com.yuri.marketplace.catalog.infrastructure.entity;
+package com.yuri.marketplace.catalog.infrastructure.persistence.entity;
 
 import com.yuri.marketplace.catalog.infrastructure.event.EventListener;
 import jakarta.persistence.*;

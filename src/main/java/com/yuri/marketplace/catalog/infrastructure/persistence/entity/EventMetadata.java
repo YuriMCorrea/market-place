@@ -1,4 +1,4 @@
-package com.yuri.marketplace.catalog.infrastructure.entity;
+package com.yuri.marketplace.catalog.infrastructure.persistence.entity;
 
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;

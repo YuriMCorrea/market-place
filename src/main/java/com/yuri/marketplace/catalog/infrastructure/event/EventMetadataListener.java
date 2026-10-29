@@ -1,6 +1,6 @@
 package com.yuri.marketplace.catalog.infrastructure.event;
 
-import com.yuri.marketplace.catalog.infrastructure.entity.EventMetadata;
+import com.yuri.marketplace.catalog.infrastructure.persistence.entity.EventMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;

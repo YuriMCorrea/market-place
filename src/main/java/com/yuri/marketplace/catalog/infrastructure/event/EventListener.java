@@ -1,6 +1,6 @@
 package com.yuri.marketplace.catalog.infrastructure.event;
 
-import com.yuri.marketplace.catalog.infrastructure.entity.Event;
+import com.yuri.marketplace.catalog.infrastructure.persistence.entity.Event;
 import jakarta.persistence.PostPersist;
 import jakarta.persistence.PostRemove;
 import jakarta.persistence.PostUpdate;

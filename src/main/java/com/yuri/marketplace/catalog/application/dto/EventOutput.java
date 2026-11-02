@@ -4,6 +4,7 @@ import com.yuri.marketplace.catalog.domain.Event;
 import com.yuri.marketplace.catalog.domain.EventMetadata;
 import com.yuri.marketplace.catalog.domain.Seat;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
@@ -16,9 +17,9 @@ public record EventOutput(
         Instant date,
         EventMetadataOutput metadata
 
-) {
+) implements Serializable {
 
-    public static EventOutput from(Event event){
+    public static EventOutput from(Event event) {
         return new EventOutput(
                 event.getId().id().toString(),
                 event.getTitle(),
@@ -33,12 +34,12 @@ public record EventOutput(
             String eventDescription,
             Map<String, Object> technicalRequirements,
             Map<String, List<SeatOutput>> seatsBySector
-    ){
+    ) implements Serializable {
         public record SeatOutput(
                 String id,
                 String sectorId,
                 BigDecimal price
-        ) {
+        ) implements Serializable {
 
         }
 
